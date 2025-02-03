@@ -1,0 +1,415 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('./assets/fonts/Raleway.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+:root {
+  --color_white: #ffffff;
+  --color_blue_deep_black: #020d19;
+  --color_deep_blue: #0e2027;
+  --color_cyan: #3af2ff;
+  --padding-size: 1rem;
+  --border-size: 10px;
+}
+
+html {
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  background-color: var(--color_blue_deep_black);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space {
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+h1,
+h2 {
+  color: var(--color_white);
+  font-size: 2.2rem;
+  font-weight: 400;
+  font-variant: small-caps;
+  text-align: center;
+  margin: 40px 0 70px 0;
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(
+    20deg,
+    var(--color_white) 40%,
+    var(--color_cyan) 50%
+  );
+}
+
+h2 {
+  align-self: center;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+h3 {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: var(--color_cyan);
+  margin: 20px 0 0 20px;
+}
+
+h3:nth-of-type(1) {
+  margin-top: 0;
+}
+
+.row:last-of-type label,
+.input_label,
+input,
+ul li {
+  font-size: 1.2rem;
+  color: var(--color_blue_deep_black);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.wrapper {
+  width: 42rem;
+  height: 47rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--padding-size);
+  padding: 1px;
+  z-index: 1;
+  box-shadow: 0 0 5px var(--color_cyan), 0 0 20px var(--color_cyan);
+  -webkit-box-box-shadow: 0 0 5px var(--color_cyan), 0 0 20px var(--color_cyan);
+  -moz-box-shadow: 0 0 5px var(--color_cyan), 0 0 20px var(--color_cyan);
+  -o-box-shadow: 0 0 5px var(--color_cyan), 0 0 20px var(--color_cyan);
+  margin: auto;
+}
+
+.wrapper::before {
+  width: 30rem;
+  height: 100rem;
+  position: absolute;
+  top: -50%;
+  left: 20%;
+  content: '';
+  display: block;
+  background: linear-gradient(-45deg, var(--color_cyan), var(--color_white));
+  z-index: -1;
+  animation: rotation 10s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+
+.calc_box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--padding-size);
+  background-color: var(--color_deep_blue);
+  padding: var(--padding-size);
+  z-index: 1;
+  border: 1px solid var(--color_cyan);
+}
+
+.calc_box .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px 0 60px 10px;
+  position: relative;
+}
+
+.calc_box .row:last-of-type {
+  margin-top: -30px;
+}
+
+.calc_box .row .icon_box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 85px;
+  z-index: 10;
+  width: 25px;
+  transition: 1.4s all ease-in-out;
+}
+
+.calc_box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.calc_box input[type='text'],
+.calc_box input[type='text']:valid {
+  content: '';
+  width: 80%;
+  background-color: var(--color_blue_deep_black);
+  color: var(--color_cyan);
+  font-weight: 100;
+  border: none;
+  outline: none;
+  border-radius: var(--border-size);
+  padding: var(--padding-size);
+  border: 2px solid var(--color_cyan);
+  z-index: 2;
+}
+
+.calc_box input[type='text']:focus ~ label {
+  color: var(--color_white);
+  font-weight: 100;
+  transition: 1s transform ease-in-out;
+}
+
+.calc_box .row label {
+  position: absolute;
+  top: -30px;
+  left: 75px;
+  color: var(--color_cyan);
+  font-weight: 300;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  z-index: 10;
+  pointer-events: none;
+  transition: 0.4s all ease-in-out;
+}
+
+.calc_box .row .service_label {
+  display: inline-block;
+  width: fit-content;
+  margin-left: -60px;
+}
+
+.calc_box .row .custom-select {
+  width: 80%;
+  background-color: var(--color_blue_deep_black);
+  color: var(--color_cyan);
+  border: 2px solid var(--color_cyan);
+  border-radius: var(--border-size);
+  padding: 1.7rem;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin-top: 30px;
+  position: relative; /* Wichtig für die Checkbox-Position */
+  z-index: 1;
+}
+
+.calc_box .row .custom-select .check_service {
+  opacity: 0;
+}
+
+.calc_box .row .custom-select .select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  margin-top: -10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 500;
+  padding: 0 0 0.5rem 1.2rem;
+  z-index: -1;
+}
+
+.calc_box .row .custom-select .check_service {
+  position: absolute;
+  /* opacity: 0; */
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  inset: 0;
+}
+
+/* Pfeil für Select-Dropdown-Men+ */
+.calc_box .row .custom-select .select::before {
+  position: relative;
+  top: 25px;
+  left: calc(100% - 45px);
+  display: block;
+  content: '';
+  width: 25px;
+  height: 25px;
+  background: url('./assets/img/circle-chevron-down-solid.svg') no-repeat;
+  background-size: cover;
+  transition: 0.4s all ease-in-out;
+}
+
+.calc_box .row .custom-select ul {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 70px);
+  background-color: var(--color_blue_deep_black);
+  border: 2px solid var(--color_cyan);
+  z-index: 4;
+  display: none;
+  transition: 2s all ease-in-out;
+}
+
+.calc_box .row .custom-select .check_service:checked ~ ul {
+  display: block;
+}
+
+.calc_box .row .custom-select .check_service:checked .custom-select label {
+  color: var(--color_white) !important;
+}
+
+.calc_box .row .custom-select .check_service:checked ~ .select::before {
+  transform: rotate(180deg);
+}
+
+.calc_box .row .custom-select ul li {
+  color: var(--color_cyan);
+  font-weight: bolder;
+  letter-spacing: 5px;
+  padding: 10px 20px;
+}
+
+.calc_box .row .custom-select ul li:hover {
+  background-color: var(--color_cyan);
+  color: var(--color_blue_deep_black);
+}
+
+button {
+  background-color: var(--color_blue_deep_black);
+  color: var(--color_cyan);
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--color_cyan);
+  border-radius: var(--border-size);
+  padding: var(--padding-size);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  transition: 0.4s all ease-in-out;
+}
+
+.btn_calculate {
+  display: flex;
+  justify-content: center;
+  margin: 150px auto 30px auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+button::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  background-color: var(--color_cyan);
+  border-radius: var(--border-size);
+  width: 0;
+  height: 100%;
+  transition: 0.4s all ease-in-out;
+}
+
+button:hover {
+  box-shadow: 0 0 5px var(--color_cyan), 0 0 15px var(--color_cyan);
+  background-color: var(--color_blue_deep_black);
+  color: var(--color_blue_deep_black);
+}
+
+button:hover::before,
+button:focus::before {
+  width: 100%;
+  z-index: -10;
+}
+
+/* ? Ausgabe der Preise */
+.price_output_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.price_output {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  background-color: var(--color_deep_blue);
+  border-radius: var(--border-size);
+  border: 2px solid var(--color_cyan);
+  box-shadow: 0 0 5px var(--color_cyan), 0 0 25px var(--color_cyan);
+  width: fit-content;
+  height: 40rem;
+  z-index: 10;
+}
+
+.price_output .date_time {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.price_output p {
+  font-size: 1.25rem;
+  font-variant-numeric: lining-nums;
+  color: var(--color_white);
+  margin: 20px 0 20px 20px;
+}
+
+.price_output .date_time p {
+  font-size: 1rem;
+}
+
+.close {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  z-index: 10;
+}
+
+.hide.price_output_overlay,
+.hide.price_output,
+.hide.close {
+  display: none;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="icon" href="./favicon.png" type="image/x-icon" />
+		<link rel="stylesheet" href="./style.css" />
+		<script type="module" src="./main.ts" defer></script>
+		<title>Trinkgeldrechner</title>
+	</head>
+	<body>
+		<main>
+			<section class="wrapper">
+				<div class="calc_box">
+					<h1>Trinkgeldrechner</h1>
+					<article>
+						<form>
+							<div class="row">
+								<label for="betrag" class="input_label">Rechnungsbetrag</label>
+								<input
+									type="text"
+									name="betrag"
+									id="betrag"
+									autocomplete="off"
+								/>
+								<div class="icon_box">
+									<img
+										src="./assets/img/moneybag.svg"
+										alt="Money-Bag"
+										title="Money-Bag"
+										aria-label="Money-Bag"
+									/>
+								</div>
+							</div>
+							<div class="row">
+								<label for="count" class="input_label"
+									>Gäste pro Rechnung</label
+								>
+								<input type="text" name="count" id="count" autocomplete="off" />
+								<div class="icon_box">
+									<img
+										src="./assets/img/people-group2.svg"
+										alt="Guest-Icon"
+										title="Guest-Icon"
+										aria-label="Guest-Icon"
+									/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="icon_box"></div>
+								<div class="custom-select" id="service">
+									<label class="service_label" for="service"
+										>Wie fanden Sie den Service</label
+									>
+									<input
+										type="checkbox"
+										name="check_service"
+										class="check_service"
+									/>
+									<div class="select">Bitte wählen Sie aus</div>
+									<ul>
+										<li>Super</li>
+										<li>Mittel</li>
+										<li>Schlecht</li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</article>
+					<button class="btn_calculate">Berechnen</button>
+				</div>
+			</section>
+			<section class="price_output_overlay hide">
+				<div class="price_output">
+					<h2>Rechnungsaufstellung</h2>
+					<div class="full_money">
+						<h3>Gesamter Rechnungsbetrag:</h3>
+						<p></p>
+					</div>
+					<div class="extra_money">
+						<h3>Trinkgeld:</h3>
+						<p></p>
+					</div>
+					<div class="price_per_person">
+						<h3>Betrag pro Person:</h3>
+						<p></p>
+					</div>
+					<div class="date_time">
+						<p></p>
+					</div>
+					<button class="close">Schliessen</button>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
