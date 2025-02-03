@@ -20,8 +20,6 @@ const priceOutputOverlay = document.querySelector(".price_output_overlay") as HT
 // * Schliessen-Button im Ausgabefeld
 const btnClose = document.querySelector(".close") as HTMLButtonElement;
 
-const service = document.querySelector(".wrapper") as HTMLDivElement;
-
 //* Füge Event-Listener für die Klicks auf die <li>-Elemente hinzu
 optionsList.forEach(option => {
     option.addEventListener('click', () => {
@@ -115,19 +113,16 @@ function closeOutput() {
 }
 
 // * Farbe der Überschrift "Wie fanden Sie den Service" ändern
-console.log("Checkbox: ", checkbox);
 
-console.log("Service: ", service);
+checkbox.addEventListener("change", () => {
+    if (label) {
+        if (checkbox.checked) {
+            label.style.color = "#ffffff"
+        } else {
+            label.style.color = "#1fc9cf"
+        }
+    } else console.error("Error");
 
-// checkbox.addEventListener("change", () => {
-//     if (label) {
-//         if (checkbox.checked) {
-//             label.style.color = "#ffffff"
-//         } else {
-//             label.style.color = "#1fc9cf"
-//         }
-//     } else console.error("Error");
-
-// });
+});
 
 btnClose.onclick = closeOutput;
